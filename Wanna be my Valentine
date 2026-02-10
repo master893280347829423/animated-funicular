@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>San Valentín</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: linear-gradient(135deg, #ff758c, #ff7eb3);
+      font-family: Arial, sans-serif;
+      color: white;
+      text-align: center;
+    }
+    .box {
+      background: rgba(255, 255, 255, 0.2);
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.2);
+    }
+    h1 {
+      margin-bottom: 30px;
+    }
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+    button {
+      padding: 15px 30px;
+      font-size: 18px;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    #yes {
+      background: #2ecc71;
+      color: white;
+      transform: scale(1);
+    }
+    #no {
+      background: #ff4d6d;
+      color: white;
+      transform: scale(1);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="box">
+    <h1>¿Quiere ser mi San Valentín? ❤️</h1>
+    <div class="buttons">
+      <button id="yes">Sí</button>
+      <button id="no">No</button>
+    </div>
+  </div>
+
+  <script>
+    let scaleYes = 1;
+    let scaleNo = 1;
+
+    document.getElementById("no").addEventListener("click", () => {
+      scaleYes += 0.2;
+      scaleNo -= 0.15;
+
+      if (scaleNo <= 0.2) {
+        document.getElementById("no").style.display = "none";
+      } else {
+        document.getElementById("no").style.transform = `scale(${scaleNo})`;
+      }
+
+      document.getElementById("yes").style.transform = `scale(${scaleYes})`;
+    });
+
+    document.getElementById("yes").addEventListener("click", () => {
+      alert("Sabía que diría que SÍ 💘");
+    });
+  </script>
+
+</body>
+</html>
